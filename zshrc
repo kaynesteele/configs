@@ -2105,7 +2105,7 @@ grml_prompt_pre_default=(
     sad-smiley        '%B%F{red}'
     shell-level       '%F{red}'
     time              '%F{blue}'
-    user              '%B%F{blue}'
+    user              '%B%F{magenta}'
     vcs               ''
 )
 
@@ -2147,7 +2147,7 @@ grml_prompt_token_default=(
     sad-smiley        '%(?..:()'
     shell-level       '%(3L.+ .)'
     time              '%D{%H:%M:%S} '
-    user              '%n'
+    user              '[%n]'
     vcs               '0'
 )
 
@@ -2356,7 +2356,7 @@ function prompt_grml_precmd () {
     emulate -L zsh
     local grmltheme=grml
     local -a left_items right_items
-    left_items=( path vcs )
+    left_items=( user path vcs )
     right_items=(sad-smiley)
 
     prompt_grml_precmd_worker

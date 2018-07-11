@@ -1,3 +1,1 @@
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx > /dev/null 2>&1 ;;
-fi
+exec startx > /dev/null 2>&1 ;
