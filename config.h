@@ -61,9 +61,13 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "urxvt", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
 static const char *rangercmd[] = { "urxvt", "-e", "ranger", NULL} ;
+static const char *downvolcmd[] = { "amixer", "sset", "Master", "5%-", NULL } ;
+static const char *upvolcmd[] = { "amixer", "sset", "Master", "5%+", NULL } ;
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+    { NULL,                         0x1008ff11, spawn,          {.v = downvolcmd } },
+    { NULL,                         0x1008ff13, spawn,          {.v = upvolcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { MODKEY|ShiftMask,             XK_f,      spawn,          {.v = firefoxcmd } },
