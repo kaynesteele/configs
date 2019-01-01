@@ -1,13 +1,27 @@
+colorscheme zellner
+syntax on
+set encoding=utf-8
+
 set nocompatible
 set wildmenu
 set wildmode=longest:full,full
-colorscheme delek
-:noremap ; l
-:noremap l k
-:noremap k j
-:noremap j h
-:syntax on
+set path+=**
+set laststatus=2
+set expandtab
+set shiftwidth=4
 set backspace=indent,eol,start
+set tabstop=4
+set title
+set modelines=5
+set incsearch
+set number relativenumber
+set splitright
+
+noremap ; l
+noremap l k
+noremap k j
+noremap j h
+
 nnoremap <C-w>j <C-w>h
 nnoremap <C-w>k <C-w>j
 nnoremap <C-w>l <C-w>k
@@ -17,28 +31,16 @@ nnoremap <Space>j <C-w><C-h>
 nnoremap <Space>; <C-w><C-l>
 nnoremap <Space>d <C-w>q
 nnoremap <Space>b :badd<Space>
-nnoremap <Space>s iswitch(temp)<Enter>{<Enter><Tab>case 1:<Enter><Enter><Tab>break;<Enter>}<Esc>?temp<Enter>
-nnoremap <Space>f iint temp()<Enter>{<Enter><Enter>}<Esc>?temp<Enter>
-nnoremap <Space>l ifor(int i=0; i<temp; i++)<Enter>{<Enter><Enter>}<Esc>?temp<Enter>
 nnoremap <Space>v :vsp<Enter><C-w><C-l><Enter>:e<Space>
 nnoremap <Space>e :e<Space>
 nnoremap <Space>t :tabnew<Enter>
-nnoremap <Space>i i#include <><Esc>i
-nnoremap <Tab> <C-w><c-w>
-nnoremap <Space><Tab> :tabn<Enter>
-set tabstop=4
-nnoremap <Space>c iclass temp<Enter>{<Enter><Tab>private:<Enter><Enter><Tab>public:<Enter>};<Esc>?temp<Enter>
-inoremap " ""<Esc>i
-inoremap ( ()<Esc>i
-inoremap { {}<Esc>i
-set title
-set modelines=5
-set incsearch
-set number relativenumber
-set splitright
+nnoremap <Tab> :bNext<Enter>
+nnoremap <Space><Tab> <C-w><C-w>
 nnoremap  o o<Esc>
 nnoremap O O<Esc>
-set path+=**
-set laststatus=2
-set expandtab
-set shiftwidth=4
+
+autocmd BufRead *.cpp,*.h :nnoremap <Space>s iswitch(temp)<Enter>{<Enter><Tab>case 1:<Enter><Enter><Tab>break;<Enter>}<Esc>?temp<Enter>
+autocmd BufRead *.cpp,*.h :nnoremap <Space>f i()<Enter>{<Enter><Enter>}<Esc>?(<Enter>i
+autocmd BufRead *.cpp,*.h :nnoremap <Space>l ifor(int i=0; i<temp; i++)<Enter>{<Enter><Enter>}<Esc>?temp<Enter>
+autocmd BufRead *.cpp,*.h :nnoremap <Space>i i#include <><Esc>i
+autocmd BufRead *.cpp,*.h :nnoremap <Space>c iclass temp<Enter>{<Enter><Tab>private:<Enter><Enter><Tab>public:<Enter>};<Esc>?temp<Enter>
