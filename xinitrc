@@ -1,2 +1,4 @@
-xset s off -dpms
-exec i3
+/home/kayne/status.sh > /dev/null &
+exec feh --randomize --bg-scale /home/kayne/wallpapers/* &
+exec dwm
+
