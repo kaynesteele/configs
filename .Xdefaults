@@ -1,13 +1,13 @@
-*.font: xft:Inconsolata:pixelsize=14
-
+*.font: xft:Inconsolata:size=10
 *.scrollBar: false
+
 ! special
 *.foreground:   #d0d0d0
 *.background:   rgba:1111/1111/0200/c800
 *.cursorColor:  #d0d0d0
 
 *.transparent: true
-*.shading: 35
+*.shading: 25
 ! black
 *.color0:       #000000
 *.color8:       #808080
