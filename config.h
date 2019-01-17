@@ -2,9 +2,9 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"monospace:size=10"
+	"Liberation Mono:size=10"
 };
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[]       = "Liberation Mono:size=10";
 static const char normbordercolor[] = "#505050";
 static const char normbgcolor[]     = "#383735";
 static const char normfgcolor[]     = "#ffffff";
@@ -39,7 +39,7 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "",      tile },    /* first entry is default */
-	{ "[M]",      monocle },
+	{ "",      monocle },
 };
 
 /* key definitions */
@@ -55,13 +55,18 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static const char *volumedowncmd[] = {"amixer", "-q", "sset", "Master", "5%-", NULL };
+static const char *volumeupcmd[] = {"amixer", "-q", "sset", "Master", "5%+", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "urxvt",  NULL };
 static const char *rangercmd[] = { "urxvt", "-e", "ranger", NULL };
+static const char *calcursecmd[] = { "urxvt", "-e", "calcurse", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+    { NULL,                         0x1008ff11,  spawn,     {.v = volumedowncmd } },
+    { NULL,                         0x1008ff13,  spawn,     {.v = volumeupcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { MODKEY|ShiftMask,             XK_f,      spawn,          {.v = firefoxcmd } } ,
@@ -75,7 +80,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_semicolon,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_c,      spawn,          {.v = calcursecmd } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },

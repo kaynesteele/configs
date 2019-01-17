@@ -6,7 +6,6 @@
 
 ! special
 *.foreground:   #d0d0d0
-*.background:   rgba:1111/1111/0200/c800
 *.cursorColor:  #d0d0d0
 
 *.transparent: true
@@ -43,3 +42,8 @@
 *.color7:       #d0d0d0
 *.color15:      #ffffff
 
+
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.colorUL: #4682B4
