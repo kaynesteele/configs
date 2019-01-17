@@ -1,5 +1,5 @@
 xset b off
-/home/kayne/status.sh > /dev/null &
-exec feh --randomize --bg-scale /home/kayne/wallpapers/* &
+~/status.sh > /dev/null &
+exec feh --randomize --bg-scale ~/wallpapers/* &
 exec dwm
 
